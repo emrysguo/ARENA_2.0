@@ -163,7 +163,7 @@ def batched_dot_product_nd(a: t.Tensor, b: t.Tensor) -> t.Tensor:
 	Use torch.einsum. You can use the ellipsis "..." in the einsum formula to represent an arbitrary number of dimensions.
 	"""
 	assert a.shape == b.shape
-	pass
+	return t.einsum("b...,b... -> b", a, b)
 
 
 actual = batched_dot_product_nd(t.tensor([[1, 1, 0], [0, 0, 1]]), t.tensor([[1, 1, 0], [1, 1, 0]]))

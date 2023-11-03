@@ -69,7 +69,7 @@ def rearrange_1() -> t.Tensor:
      [5, 6],
      [7, 8]]
     """
-    pass
+    return rearrange(t.arange(3,9),"(h w) -> h w",h=3, w=2) #pass
 
 
 expected = t.tensor([[3, 4], [5, 6], [7, 8]])
@@ -82,7 +82,7 @@ def rearrange_2() -> t.Tensor:
     [[1, 2, 3],
      [4, 5, 6]]
     """
-    pass
+    return rearrange(t.arange(1, 7), "h -> 1 h 1")#pass
 
 
 assert_all_equal(rearrange_2(), t.tensor([[1, 2, 3], [4, 5, 6]]))
